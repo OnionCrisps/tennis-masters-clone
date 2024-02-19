@@ -1,40 +1,19 @@
-#include <SFML/Window/Event.hpp>
-#include <SFML/Window/VideoMode.hpp>
-#include <SFML/Window/WindowStyle.hpp>
 #include<iostream>
-#include<SFML/Graphics.hpp>
-#include<SFML/Window.hpp>
-#include<SFML/System.hpp>
-#include<SFML/Audio.hpp>
-#include<SFML/Network.hpp>
-
+#include "../includes/Game.hpp"
 using namespace std;
 
 int main(){
 	
-	sf::RenderWindow window(sf::VideoMode(640, 480), "MyGame",  sf::Style::Titlebar | sf::Style::Close );
-	
-	sf::Event ev;
+	//Tennis Engine initialization(Game.hpp class)
+	Game game;
 
-	while(window.isOpen()){
-		//EVENT POLLS
-		while (window.pollEvent(ev)) {
-
-			if (ev.type == sf::Event::Closed){
-				window.close();
-				break;
-			}
-		}
-		
+	//Game loop:
+	while(game.isRunning()){	
 		//Update
-		window.clear(sf::Color::Green);
-
-
+		game.update();	
 		//Render
-		window.display();
-
+		game.render();
 	}	
-
-
+	//EOP
 	return 0;
 }
