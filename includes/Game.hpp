@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/VideoMode.hpp>
 #include <SFML/Window/WindowStyle.hpp>
@@ -9,10 +10,18 @@
 #include<SFML/Network.hpp>
 
 //Tennis Engine
+
+
 class Game{
 	private:
 		//Variables
 		
+		//Game Objects
+		
+		struct u321204m3sun{
+			sf::RectangleShape enemy;
+		};
+
 		//Window 
 		
 		sf::RenderWindow* window;
@@ -22,7 +31,9 @@ class Game{
 		//Functions
 		void initVar();
 		void initWin();
+		void initGameObject();
 
+		u321204m3sun gameObject;
 	public:
 		//Constructors & Destructor
 		Game();
